@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A95GAMES</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #2c0000, #ff4500);
+            color: white;
+            overflow: hidden;
+        }
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .home h1 {
+            font-size: 5rem;
+            text-shadow: 3px 3px 10px black;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .home h1:hover {
+            transform: scale(1.1);
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            height: 100%;
+            width: 300px;
+            background: #900000;
+            box-shadow: -5px 0 15px black;
+            transition: right 0.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 20px 0;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .menu a:hover {
+            color: #ff4500;
+        }
+        .about {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        .about h2 {
+            cursor: pointer;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 5px black;
+        }
+        .about-section {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0 20px;
+            margin: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            transition: max-height 0.5s ease;
+        }
+        .about-section p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="home">
+        <h1 onclick="toggleMenu()">ESPLORA</h1>
+    </div>
+    <div class="menu" id="menu">
+        <a href="https://discord.gg/hZc8wm3bs3">Server Discord</a>
+        <a href="https://discord.gg/hZc8wm3bs3">Canale YouTube</a>
+    </div>
+    <div class="about">
+        <h2 onclick="toggleAbout()">CHI SONO</h2>
+        <div class="about-section" id="aboutSection">
+            <p>Il mio nome è Andrea, sono nato il 23 Agosto e mi faccio chiamare A95GAMES o più spesso Andrea95.</p>
+            <p>Ho una grande passione per l'informatica e da poco mi sono cimentato nel mondo di YouTube.</p>
+            <p>Sono una persona piuttosto vivace quando ce n'è bisogno, e i miei videogiochi preferiti sono Minecraft, Forza Horizon e Fortnite.</p>
+        </div>
+    </div>
+    <script>
+        const menu = document.getElementById('menu');
+        const aboutSection = document.getElementById('aboutSection');
+
+        function toggleMenu() {
+            menu.style.right = menu.style.right === '0px' ? '-300px' : '0px';
+        }
+
+        function toggleAbout() {
+            if (aboutSection.style.maxHeight === '0px' || aboutSection.style.maxHeight === '') {
+                aboutSection.style.maxHeight = aboutSection.scrollHeight + 'px';
+            } else {
+                aboutSection.style.maxHeight = '0px';
+            }
+        }
+    </script>
+</body>
+</html>
